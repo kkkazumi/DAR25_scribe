@@ -1,0 +1,66 @@
+# ===== DAR25_scribe 用 .gitignore =====
+# 方針: プログラム（*.py）と questions.txt だけを管理する。
+#       音声・文字起こし・ログ・名前の一覧など、個人情報を含むものは絶対に入れない。
+
+# --- Python / 仮想環境 / IDE ---
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.idea/
+.vscode/
+.ipynb_checkpoints/
+
+# --- 入力データ（音声・Azureの文字起こし・ロボットのログ）---
+mp3/
+csv/
+robot_log/
+*.mp3
+*.wav
+*.m4a
+*.flac
+
+# --- 各プログラムの出力（実名や発話内容を含む）---
+csv_merged/
+csv_merged_original/
+out_mp3/
+out_roles/
+out_refine/
+out_transcript/
+out_aligned/
+out_aligned_before_log/
+out_overlap/
+out_quality/
+out_triage/
+out_handover/
+out_sample/
+robot_log_parsed/
+robot_log_check/
+out_respondent_audio/
+
+# --- 名前の一覧・実行ログ（実名が入る）---
+known_names.csv
+*_PRIVATE.csv
+*PRIVATE*
+refine_run_log_*.txt
+refine_summary_from_log.csv
+
+# --- 旧版（使わない）---
+build_respondent_audio.py
+transcribe_respondent.py
+
+# --- 機械学習モデルのキャッシュ ---
+*.pt
+*.pth
+*.bin
+*.ckpt
+.cache/
+huggingface/
+
+# --- OS ---
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# --- 必ず管理するもの（上のパターンに巻き込まれないように）---
+!questions.txt
